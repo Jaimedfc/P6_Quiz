@@ -173,7 +173,7 @@ exports.randomPlay = (req, res, next) =>{
     .catch(Sequelize.ValidationError, error => {
         req.flash('error', 'There are errors in the form:');
         error.errors.forEach(({message}) => req.flash('error', message));
-        res.render('quizzes/random_play', {score});
+        res.render('quizzes/random_play', {score,quiz});
     })
     .catch(error => {
         req.flash('error', 'Error playing the Quiz: ' + error.message);
@@ -193,7 +193,7 @@ exports.randomCheck = (req, res, next) =>{
         score=req.session.randomPlay.length;
     }else{
         score=req.session.randomPlay.length;
-        req.session.randomPlay=[]
+        req.session.randomPlay=[];
     }
 
 
