@@ -166,7 +166,6 @@ exports.randomPlay = (req, res, next) =>{
         if(quizzes.length===0){
             req.session.randomPlay = [];
             res.render('quizzes/random_nomore',{score});
-
             return;
         }
         res.render('quizzes/random_play',{score,quiz});
